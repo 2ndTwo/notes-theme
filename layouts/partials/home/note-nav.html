@@ -1,0 +1,11 @@
+<nav class="class-notes-menu">
+  <ul>
+    {{ range where .Site.Sections "Type" "class" -}}
+      <li>
+        <a href="{{ .Permalink }}">
+          <h2>{{ .Params.name }}</h2>
+        </a>
+      </li>
+    {{- end -}}
+  </ul>
+</nav>

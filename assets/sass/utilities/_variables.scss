@@ -1,0 +1,22 @@
+$primary-color: lighten(black, 10%);
+$secondary-color: white;
+
+$background-color: white;
+
+$menu-padding: 0.75rem;
+$menu-link-color: $primary-color;
+
+$content-width: 1000px;
+
+$menu-transition-duration: 0.2s;
+$menu-transition-timing: linear;
+
+/* Text */
+$system-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+$heading-family: 'Oswald', monospace;
+
+$copy-family: 'Open Sans', monospace;
+$copy-size: 1rem;
+$copy-color: $primary-color;
+$link-color: #12acde;

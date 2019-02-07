@@ -1,0 +1,7 @@
+{{/*
+    Copied from https://it.knightnet.org.uk/kb/hugo/hugo-snippets/
+    Outputs the code from the given file and adds syntax highlighting
+*/}}
+{{ $file := .Get "file" | readFile }}
+{{ $lang := .Get "language" }}
+{{ (print "```" $lang "\n" $file "\n```") | markdownify }}

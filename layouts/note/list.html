@@ -1,0 +1,15 @@
+<article>
+  <a href="{{ .URL }}">
+    <h2>
+      {{ .Title }}
+    </h2>
+  </a>
+  <section>
+    {{- if (isset .Params "summary") }}
+      {{ markdownify .Params.summary }}
+      {{ partial "note/source.html" . }}
+    {{- else }}
+      <p>No summary exists (yet).</p>
+    {{- end }}
+  </section>
+</article>

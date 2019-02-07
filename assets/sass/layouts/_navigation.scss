@@ -1,0 +1,139 @@
+.menu {
+  grid-area: menu;
+  justify-self: center;
+  width: 100%;
+
+  li {
+    background-color: var(--secondary-color);
+    --duration: #{$menu-transition-duration};
+    --timing: #{$menu-transition-timing};
+    transition: color var(--duration) var(--timing),
+                background-color var(--duration) var(--timing);
+    list-style: none;
+
+    &:hover > ul {
+      display: block;
+    }
+    > a {
+      padding: var(--padding-y) var(--padding-x);
+      color: inherit;
+      white-space: nowrap;
+    }
+  }
+
+  > ul {
+    display: flex;
+
+    > li {
+      --padding-x: 0.75rem;
+      --padding-y: 0.75rem;
+      padding: var(--padding-y) 0;
+      position: relative;
+      border-bottom: 1px white solid;
+      &:hover {
+        color: $secondary-color;
+        background-color: $primary-color;
+      }  
+    }
+    .sub-menu {
+      display: none;
+      position: absolute;
+      top: calc(#{$copy-size} + (var(--padding-y) * 2 + 0.5rem));
+      border-width: 2px;
+      border-color: $primary-color;
+      border-style: solid;
+      background-color: $background-color;
+      margin-top: 1px;
+      color: $primary-color;   // Stops li's from inheriting white color from parent li
+      padding-left: 0;  // Override the default ul padding
+      
+      > li {
+        --padding-x: 0.5rem;
+        --padding-y: 0.5rem;
+        padding: var(--padding-y) 0;
+        &:hover {
+          color: $secondary-color;
+          background-color: $primary-color;
+        }    
+      }
+    }
+  }
+}
+
+.class-notes-menu {
+  ul {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-column-gap: 20px;
+    grid-template-rows: auto;
+    width: 100%;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: $content-width) {
+      grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+    }
+  }
+
+  li {
+    display: inline-block;
+    text-align: center;
+    border: 2px $primary-color solid;
+    --duration: #{$menu-transition-duration};
+    --timing: #{$menu-transition-timing};
+    transition: color var(--duration) var(--timing),
+                background-color var(--duration) var(--timing);
+
+    &:hover {
+      background-color: $primary-color;
+      
+      h2 {
+        color: $secondary-color;
+      }
+    }
+
+    h2 {
+      display: inline-block;
+    }
+  }
+}
+
+.websites-menu {
+  ul {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-column-gap: 20px;
+    grid-template-rows: auto;
+    width: 100%;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: $content-width) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+    }
+  }
+
+  li {
+    display: inline-block;
+    text-align: center;
+    border: 2px $primary-color solid;
+    --duration: #{$menu-transition-duration};
+    --timing: #{$menu-transition-timing};
+    transition: color var(--duration) var(--timing),
+                background-color var(--duration) var(--timing);
+
+    &:hover {
+      background-color: $primary-color;
+      
+      h2 {
+        color: $secondary-color;
+      }
+    }
+
+    h2 {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.source {
+  margin: 1rem 0;
+  
+  p {
+    margin: 0;
+  }
+}
+
+/*
+* Links
+*/
+
+/* Give heading links an indication of having a link without
+   changing the color */
+a {
+  h1, h2, h3, h4, h5, h6 {
+    text-decoration: underline;
+  }
+}
+
+a.future-link {
+  color: #e64e4e;
+}
+
+/*
+* Misc
+*/
+
+.cursor-default {
+  cursor: default;
+}

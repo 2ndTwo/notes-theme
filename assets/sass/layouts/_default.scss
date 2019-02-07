@@ -1,0 +1,10 @@
+body {
+  display: grid;
+  grid-template-columns: 1.5rem [menu-start] minmax(0, 1fr)
+   [main-start] minmax(auto, 1000px) [main-end] minmax(0, 1fr)
+   [menu-end] 1.5rem;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". menu menu menu ."
+    ". . main . ."
+}

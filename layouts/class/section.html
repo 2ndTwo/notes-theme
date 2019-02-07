@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <h1>{{ .Params.name }}</h1>
+  <main>
+    {{ .Content }}
+  </main>
+
+  <h1>Random 5 notes</h1>
+  {{- range (first 5 (shuffle (where .Site.AllPages "Section" .Title ))) -}}
+    <a href="{{ .URL }}">
+      {{ .Render "list" }}
+    </a>
+  {{- end -}}
+{{ end }}

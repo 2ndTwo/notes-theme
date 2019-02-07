@@ -1,0 +1,18 @@
+{{/*
+  Returns a link to the oldest page with the given param
+  Parameter 0: param name
+  Parameter 1: param value
+*/}}
+{{ $input := . }}
+
+{{ $scratch := newScratch }}
+{{ $scratch.Set "paramExists" false }}
+
+{{- range first 1 (where .Site.Pages (print ".Params." ($input.Get 0)) ($input.Get 1)).ByDate -}}
+  <a href="{{ .Permalink }}">{{ $input.Inner }}</a>
+  {{- $scratch.Set "paramExists" true -}}
+{{- end -}}
+
+{{- if not ($scratch.Get "paramExists") -}}
+  <a class="future-link">{{ $input.Inner }}</a>
+{{- end -}}

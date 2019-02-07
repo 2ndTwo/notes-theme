@@ -1,0 +1,24 @@
+<footer class="source">
+{{- if isset .Params "source" -}}
+  {{- if or (eq .Params.source "textbook") (eq .Params.source "book") -}}
+
+    {{- if isset .Params "bookname" -}}
+      <p><small>Book: <cite>{{ .Params.bookName }}</cite></small></p>
+    {{- end -}}
+
+    {{- if isset .Params "chapter" -}}
+      <p><small>Chapter: {{ .Params.chapter }}</small></p>
+    {{- end -}}
+
+    {{- if isset .Params "pages" -}}
+      <p><small>Pages: {{ .Params.pages }}</small></p>
+    {{- end -}}
+
+
+  {{- else if or (eq .Params.source "video") (eq .Params.source "lecture") -}}
+    {{- if isset .Params "videourl" -}}
+      <p><a href="{{ .Params.videoUrl }}">Video</a></p>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+</footer>

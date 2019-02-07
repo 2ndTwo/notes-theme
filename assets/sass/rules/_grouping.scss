@@ -1,0 +1,18 @@
+li, p {
+  font-family: $copy-family;
+  font-size: $copy-size;
+  line-height: 1.5;
+  color: $copy-color;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+main {
+  grid-area: main;
+}
+
+pre {
+  padding: 1rem;
+}
