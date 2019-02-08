@@ -23,6 +23,9 @@
 
   > ul {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 0;
 
     > li {
       --padding-x: 0.75rem;
@@ -46,6 +49,7 @@
       margin-top: 1px;
       color: $primary-color;   // Stops li's from inheriting white color from parent li
       padding-left: 0;  // Override the default ul padding
+      z-index: 1;   // Prevent other text from overwriting this menu
       
       > li {
         --padding-x: 0.5rem;
