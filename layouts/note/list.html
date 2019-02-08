@@ -5,7 +5,7 @@
     </h2>
   </a>
   <section>
-    {{- if (isset .Params "summary") }}
+    {{- if .Params.summary }}
       <p>{{ .Params.summary | markdownify }}</p>
       {{ partial "note/source.html" . }}
     {{- else }}
