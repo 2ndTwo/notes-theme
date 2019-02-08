@@ -4,10 +4,16 @@
     {{ .Content }}
   </main>
 
-  <h1>Random 5 notes</h1>
-  {{- range (first 5 (shuffle (where .Site.AllPages "Section" .Title ))) -}}
-    <a href="{{ .URL }}">
-      {{ .Render "list" }}
-    </a>
+  {{ $noteNumber := 5 -}}
+  <h1>Random {{ $noteNumber }} notes</h1>
+  {{- $classNotes := slice }}
+  {{- range where (where .Site.AllPages "Section" .Title) "Type" "note" }}
+    {{- if gt (len .Content) 0 }}
+      {{- $classNotes = $classNotes | append . }}
+    {{- end }}
+  {{- end }}
+  
+  {{- range (first $noteNumber (shuffle $classNotes)) -}}
+    {{ .Render "list" }}
   {{- end -}}
 {{ end }}
