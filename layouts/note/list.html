@@ -6,7 +6,7 @@
   </a>
   <section>
     {{- if (isset .Params "summary") }}
-      {{ markdownify .Params.summary }}
+      <p>{{ .Params.summary | markdownify }}</p>
       {{ partial "note/source.html" . }}
     {{- else }}
       <p>No summary exists (yet).</p>
