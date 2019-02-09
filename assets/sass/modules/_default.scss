@@ -1,3 +1,7 @@
+
+/*
+ * Source Partial
+ */
 .source {
   margin: 1rem 0;
   
@@ -5,10 +9,14 @@
     margin: 0;
   }
 }
+.source-heading {
+  font-size: 1.25em;
+  margin-bottom: 0;
+}
 
 /*
-* Links
-*/
+ * Links
+ */
 
 /* Give heading links an indication of having a link without
    changing the color */
@@ -23,8 +31,8 @@ a.future-link {
 }
 
 /*
-* Misc
-*/
+ * Misc
+ */
 
 .cursor-default {
   cursor: default;

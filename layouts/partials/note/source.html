@@ -1,5 +1,7 @@
+{{- if .Params.source -}}
 <footer class="source">
-{{- if isset .Params "source" -}}
+  <h1 class="source-heading">Source</h1>
+
   {{- if or (eq .Params.source "textbook") (eq .Params.source "book") -}}
 
     {{- if isset .Params "bookname" -}}
@@ -20,5 +22,5 @@
       <p><a href="{{ .Params.videoUrl }}">Video</a></p>
     {{- end -}}
   {{- end -}}
-{{- end -}}
 </footer>
+{{- end -}}
