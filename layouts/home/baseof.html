@@ -2,14 +2,10 @@
 <html>
   {{- partial "head.html" . -}}
   <body>
-    {{ partial "header.html" . }}
-    
     <main>
       {{- block "main" . }}{{- end }}
 
-      <h1>Websites</h1>
-      {{ partial "home/website-nav.html" . }}
-      
+      {{ partialCached "home/note-nav.html" . }}
       <h1>Notes</h1>
       {{ partial "home/note-nav.html" . }}
     </main>
