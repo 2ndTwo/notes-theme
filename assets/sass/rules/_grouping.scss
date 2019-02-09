@@ -1,3 +1,7 @@
+pre {
+  padding: 1em;
+}
+
 li, p {
   font-family: $copy-family;
   font-size: $copy-size;
@@ -9,10 +13,11 @@ p {
   margin: 1rem 0;
 }
 
-main {
-  grid-area: main;
+ol, ul {
+  padding-left: 2em;
+  margin: 0.25em 0;
 }
 
-pre {
-  padding: 1em;
+main {
+  grid-area: main;
 }
