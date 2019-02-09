@@ -7,7 +7,7 @@
   <section>
     {{- if .Params.summary }}
       <p>{{ .Params.summary | markdownify }}</p>
-      {{ partial "note/source.html" . }}
+      {{ partialCached "note/source.html" . .Dir .Title }}
     {{- else }}
       <p>No summary exists (yet).</p>
     {{- end }}

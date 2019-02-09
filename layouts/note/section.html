@@ -5,5 +5,5 @@
     {{ .Content }}
 </section>
 
-{{ partial "note/source.html" . }}
+{{ partialCached "note/source.html" . .Dir .Title }}
 {{ end }}
