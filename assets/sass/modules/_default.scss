@@ -34,3 +34,12 @@ a[href="#"], a[href=""] {
 a.future-link {
   color: #e64e4e;
 }
+
+/*
+ * Code
+ */
+
+p > code {
+  padding: 1px 5px;
+  background-color: $code-background-color;
+}
