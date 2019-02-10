@@ -13,7 +13,7 @@
     {{- $class := $scratch.Get "class" -}}
 
     <li>
-      <a href="{{ $class.URL }}">{{ $class.Params.name }}</a>
+      <a href="{{ $class.URL }}">{{ $class.Title }}</a>
     </li>  
 
     {{- range .Site.Menus.note -}}
