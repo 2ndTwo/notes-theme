@@ -26,14 +26,11 @@ a {
   }
 }
 
-a.future-link {
-  color: #e64e4e;
+a[href="#"], a[href=""] {
+  text-decoration: none;
+  cursor: default;
 }
 
-/*
- * Misc
- */
-
-.cursor-default {
-  cursor: default;
+a.future-link {
+  color: #e64e4e;
 }
