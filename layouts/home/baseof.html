@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  {{- partialCached "head.html" . -}}
+  {{- partialCached "head.html" . .Title -}}
   <body>  
     <main>
       {{- block "main" . }}{{- end }}
