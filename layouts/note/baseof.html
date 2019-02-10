@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
   {{- partialCached "head.html" . .Title -}}
-    <body>
-        {{ partialCached "note/nav.html" . .Section }}
-        <main>
-            <article id="content">
-                {{- block "main" . }}{{- end }}
-            </article>
-        </main>
-        {{- partialCached "footer.html" . -}}
-    </body>
+  <body>
+    {{ partialCached "note/nav.html" . .Section }}
+    <main>
+      {{- block "main" . }}{{- end }}
+    </main>
+    {{- partialCached "footer.html" . -}}
+  </body>
 </html>
