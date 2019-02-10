@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  {{- partialCached "head.html" . .Title -}}
+  <body>  
+    <main>
+    {{ if .Site.Title }}
+      <h1> {{ .Site.Title }}</h1>
+    {{ end }}
+    {{ if .Site.Params.description }}
+      <p>{{ .Site.Params.description }}</p>
+    {{ end }}
+      <h1>Classes</h1>
+      {{ partialCached "home/class-nav.html" . }}
+    </main>
+    {{- partialCached "footer.html" . -}}
+  </body>
+</html>
