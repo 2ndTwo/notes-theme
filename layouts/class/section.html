@@ -7,7 +7,7 @@
   {{ $noteNumber := 5 -}}
   <h1>Random {{ $noteNumber }} notes</h1>
   {{- $classNotes := slice }}
-  {{- range where (where .Site.AllPages "Section" .Title) "Type" "note" }}
+  {{- range where (where .Site.AllPages "Section" .Section) "Type" "note" }}
     {{- if gt (len .Content) 0 }}
       {{- $classNotes = $classNotes | append . }}
     {{- end }}
