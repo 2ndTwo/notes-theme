@@ -1,12 +1,27 @@
 body {
   display: grid;
-  grid-template-columns: 1.5rem [menu-start] minmax(0, 1fr)
-   [main-start] minmax(auto, 65ch) [main-end] minmax(0, 1fr)
-   [menu-end] 1.5rem;
+  grid-template-columns: $responsive-padding 1fr $responsive-padding;
   grid-template-rows: auto;
   grid-template-areas:
-    ". menu menu menu ."
-    ". . main . .";
-  font-family: $copy-family;
-  font-size: $copy-size;
+    ". menu ."
+    ". main .";
+}
+
+#content {
+  display: grid;
+  grid-template-columns: [content-left] 1fr [copy-start] minmax(auto, $copy-width) [copy-end] 1fr [content-right];
+  :not(div):not(img):not(picture):not(video) {
+    grid-column-start: copy-start;
+    grid-column-end: copy-end;
+  }
+  div, img, picture, video {
+    grid-column-start: content-left;
+    grid-column-end: content-right;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: $copy-width;
+    @media (max-width: $copy-width + 20ch) {
+      min-width: 100%;
+    }
+  }
 }

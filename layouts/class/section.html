@@ -1,8 +1,8 @@
 {{ define "main" }}
+
+<main id="content">
   <h1>{{ .Title }}</h1>
-  <main>
     {{ .Content }}
-  </main>
 
   {{ $noteNumber := 5 -}}
   <h1>Random {{ $noteNumber }} notes</h1>
@@ -16,4 +16,6 @@
   {{- range (first $noteNumber (shuffle $classNotes)) -}}
     {{ .Render "list" }}
   {{- end -}}
+</main>
+
 {{ end }}

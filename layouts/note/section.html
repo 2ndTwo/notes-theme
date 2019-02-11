@@ -1,9 +1,9 @@
-{{ define "main" }}
-<h1>{{ .Title }}</h1>
+{{ define "main" -}}
 
-<section>
-    {{ .Content }}
-</section>
+<article id="content">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ partialCached "note/source.html" . .Dir .Title }}
+</article>
 
-{{ partialCached "note/source.html" . .Dir .Title }}
-{{ end }}
+{{- end }}

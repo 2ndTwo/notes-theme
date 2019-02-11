@@ -76,7 +76,7 @@
     width: 100%;
     flex-wrap: wrap;
 
-    @media screen and (max-width: $content-width) {
+    @media screen and (max-width: $copy-width) {
       grid-template-columns: repeat(auto-fit, minmax(260px, auto));
     }
   }
