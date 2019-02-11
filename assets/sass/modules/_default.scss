@@ -39,7 +39,7 @@ a.future-link {
  * Code
  */
 
-p > code {
+:not(pre) > code {
   padding: 1px 5px;
   background-color: $code-background-color;
 }
