@@ -10,11 +10,21 @@ body {
 #content {
   display: grid;
   grid-template-columns: [content-left] 1fr [copy-start] minmax(auto, $copy-width) [copy-end] 1fr [content-right];
-  :not(div):not(img):not(picture):not(video) {
+  grid-row-gap: $copy-size;
+  
+  > :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6), > div > pre {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin: 1em 0 0;
+  }
+
+  > :not(div):not(img):not(picture):not(video) {
     grid-column-start: copy-start;
     grid-column-end: copy-end;
   }
-  div, img, picture, video {
+  > div, > img, > picture, > video {
     grid-column-start: content-left;
     grid-column-end: content-right;
     margin-left: auto;
