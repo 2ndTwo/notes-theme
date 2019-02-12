@@ -2,14 +2,14 @@
 <html>
   {{- partialCached "head.html" . .Title -}}
   <body>  
-    <main>
+    <main id="home-content">
     {{ if .Site.Title }}
       <h1> {{ .Site.Title }}</h1>
     {{ end }}
     {{ if .Site.Params.description }}
       <p>{{ .Site.Params.description }}</p>
     {{ end }}
-      <h1>Classes</h1>
+      <h2>Classes</h2>
       {{ partialCached "home/class-nav.html" . }}
     </main>
     {{- partialCached "footer.html" . -}}

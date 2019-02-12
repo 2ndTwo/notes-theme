@@ -1,9 +1,9 @@
-<nav class="class-notes-menu">
+<nav class="classes-menu">
   <ul>
     {{ range where .Site.Sections "Type" "class" -}}
       <li>
         <a href="{{ .Permalink }}">
-          <h2>{{ .Title }}</h2>
+          <h3>{{ .Title }}</h3>
         </a>
       </li>
     {{- end -}}

@@ -64,7 +64,7 @@
   }
 }
 
-.class-notes-menu {
+.classes-menu {
   ul {
     list-style: none;
     padding-left: 0;
@@ -76,7 +76,7 @@
     width: 100%;
     flex-wrap: wrap;
 
-    @media screen and (max-width: $copy-width) {
+    @media screen and (max-width: $home-content-width) {
       grid-template-columns: repeat(auto-fit, minmax(260px, auto));
     }
   }
@@ -93,12 +93,12 @@
     &:hover {
       background-color: $primary-color;
       
-      h2 {
+      h3 {
         color: $secondary-color;
       }
     }
 
-    h2 {
+    h3 {
       display: inline-block;
     }
   }
