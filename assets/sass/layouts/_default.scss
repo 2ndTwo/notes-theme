@@ -23,6 +23,7 @@ body {
   }
 }
 
+#note-content {
   display: grid;
   grid-template-columns: [content-left] 1fr [copy-start] minmax(auto, $copy-width) [copy-end] 1fr [content-right];
   grid-row-gap: $copy-size;

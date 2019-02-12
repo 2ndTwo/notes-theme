@@ -1,6 +1,6 @@
 {{ define "main" -}}
 
-<article id="content">
+<article id="note-content">
   <h1>{{ .Title }}</h1>
   {{ .Content }}
   {{ partialCached "note/source.html" . .Dir .Title }}
