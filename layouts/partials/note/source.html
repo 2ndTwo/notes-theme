@@ -1,26 +1,42 @@
-{{- if .Params.source -}}
+{{- if (or .Params.source .Params.sources) -}}
 <footer class="source">
   <h1 class="source-heading">Source</h1>
-
-  {{- if or (eq .Params.source "textbook") (eq .Params.source "book") -}}
-
-    {{- if isset .Params "bookname" -}}
-      <p><small>Book: <cite>{{ .Params.bookName }}</cite></small></p>
-    {{- end -}}
-
-    {{- if isset .Params "chapter" -}}
-      <p><small>Chapter: {{ .Params.chapter }}</small></p>
-    {{- end -}}
-
-    {{- if isset .Params "pages" -}}
-      <p><small>Pages: {{ .Params.pages }}</small></p>
-    {{- end -}}
-
-
-  {{- else if or (eq .Params.source "video") (eq .Params.source "lecture") -}}
-    {{- if isset .Params "videourl" -}}
-      <p><a href="{{ .Params.videoUrl }}">Video</a></p>
+  {{ $currentPage := . }}
+  {{- $scratch := newScratch }}
+  {{ $scratch.Set "sourceFound" false }}
+  {{- range where .Site.Sections "Type" "class" -}}
+    {{- if $currentPage.IsDescendant . -}}
+      {{- $scratch.Set "class" . -}}
     {{- end -}}
   {{- end -}}
+  {{- $class := $scratch.Get "class" -}}
+
+
+  {{ if .Params.sources }}
+    {{ range .Params.sources }}
+      {{ if (index $class.Params.sources (lower .)) }}
+        <p><small>
+          {{ . | title }}: 
+          {{ index $class.Params.sources (lower .) }}
+        </small></p>
+        {{ $scratch.Set "sourceFound" true }}
+      {{ end }}
+    {{- end -}}
+
+  {{ else if .Params.source }}
+    {{ with .Params.source }}
+      {{ if (index $class.Params.sources (lower .)) }}
+        <p><small>
+          {{ . | title }}: 
+          {{ index $class.Params.sources (lower .) }}
+        </small></p>
+        {{ $scratch.Set "sourceFound" true }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ if not ($scratch.Get "sourceFound") }}
+    <p class="error">Invalid source(s)</p>
+  {{ end }}
 </footer>
 {{- end -}}

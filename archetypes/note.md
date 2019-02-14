@@ -6,13 +6,7 @@ menu:
   note:
     parent: {{ replace (path.Base .Dir) "-" " " | title }}
 
-source: 
-
-filename: 
-videoUrl: 
-articleUrl: 
-bookName: 
-chapter: 
+sources: []
 
 summary: 
 ---
