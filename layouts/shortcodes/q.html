@@ -1,0 +1,9 @@
+{{/*
+    Styles a question for maximum visibility when going over notes later.
+*/}}
+
+{{- if .Get 0 -}}
+  <strong class="unanswered-question">{{ .Get 0 }}</strong>
+{{- else if .Inner -}}
+  <strong class="unanswered-question">{{ .Inner }}</strong>
+{{- end -}}

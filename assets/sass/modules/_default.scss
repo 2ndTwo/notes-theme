@@ -15,6 +15,16 @@
 }
 
 /*
+ *  Q Shortcode
+ */
+
+.unanswered-question {
+  display: block;
+  font-size: 2em;
+  color: $red;
+}
+
+/*
  * Links
  */
 
@@ -32,7 +42,7 @@ a[href="#"], a[href=""] {
 }
 
 a.future-link {
-  color: #e64e4e;
+  color: $red;
 }
 
 /*
