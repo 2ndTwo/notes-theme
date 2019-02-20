@@ -27,6 +27,7 @@ body {
   display: grid;
   grid-template-columns: [content-left] 1fr [copy-start] minmax(auto, $copy-width) [copy-end] 1fr [content-right];
   grid-row-gap: $copy-size;
+  margin-bottom: 1rem;
   
   > :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6), > div > pre {
     margin-top: 0;
