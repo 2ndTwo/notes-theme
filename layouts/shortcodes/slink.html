@@ -1,0 +1,21 @@
+{{/*
+    Slink (short for Smart Link)
+    Returns the link most closely associated to the string given
+*/}}
+
+{{/* Start by looking for headings */}}
+
+{{- $scratch := newScratch }}
+{{- $scratch.Set "shortcode" . }}
+{{- $scratch.Set "match" false }}
+{{- range .Site.Pages }}
+  {{- $foundMatch := $scratch.Get "match" }}
+  {{- if not ($scratch.Get "match") }}
+    {{- $shortcode := $scratch.Get "shortcode" }}
+    {{- $heading := findRE (printf "<h[1-6][^>]*?>([^<]|\n)*?%s([^<]|\n)*?</h[1-6]>" ($shortcode.Get 0)) .Content 1 }}
+    {{- if $heading }}
+      {{- .Permalink }}#{{- replaceRE ".*id=.([a-z-]*)..*" "$1" (index $heading 0) -}}
+      {{- $scratch.Set "match" true }}
+    {{- end }}
+  {{- end }}
+{{- end }}
