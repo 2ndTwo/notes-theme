@@ -3,7 +3,7 @@
     Returns the link most closely associated to the string given
 */}}
 
-{{/* Start by looking for headings */}}
+{{/* Look for a heading with the given text */}}
 
 {{- $scratch := newScratch }}
 {{- $scratch.Set "shortcode" . }}
@@ -12,10 +12,13 @@
   {{- $foundMatch := $scratch.Get "match" }}
   {{- if not ($scratch.Get "match") }}
     {{- $shortcode := $scratch.Get "shortcode" }}
-    {{- $heading := findRE (printf "<h[1-6][^>]*?>([^<]|\n)*?%s([^<]|\n)*?</h[1-6]>" ($shortcode.Get 0)) .Content 1 }}
-    {{- if $heading }}
-      {{- .Permalink }}#{{- replaceRE ".*id=.([a-z-]*)..*" "$1" (index $heading 0) -}}
+    {{- $heading := findRE (printf "#[a-z-]*.>[^<]*%s[^<]*</a>" ($shortcode.Get 0)) .TableOfContents 1 }}
+    {{- if $heading -}}
+      {{- .Permalink }}#{{- replaceRE "#([a-z-]*).>[^<]*[^<]*</a>" "$1" (index $heading 0) -}}
       {{- $scratch.Set "match" true }}
     {{- end }}
   {{- end }}
-{{- end }}
+{{- end -}}
+
+{{/* Look for non-heading content that contains the text */}}
+
