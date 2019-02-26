@@ -1,0 +1,33 @@
+{{/*
+    Slink (short for Smart Link)
+    Returns the link most closely associated to the string given
+*/}}
+
+{{/* Look for a heading with the given text */}}
+
+{{- $scratch := newScratch }}
+{{- $scratch.Set "shortcode" . }}
+{{- $scratch.Set "identicalHeadingFound" false }}
+{{- $scratch.Set "fuzzyHeading" "" }}
+{{- range sort .Site.Pages "Date" }}
+  {{- $foundMatch := $scratch.Get "match" }}
+  {{- if not ($scratch.Get "identicalHeadingFound") }}
+    {{- $shortcode := $scratch.Get "shortcode" }}
+    {{- $heading := findRE (printf "#[a-z-]*.>[^<]*%s[^<]*</a>" ($shortcode.Get 0)) .TableOfContents 1 }}
+    {{- if $heading -}}
+      {{- if eq ($shortcode.Get 0) (replaceRE "#[a-z-]*.>([^<]*[^<]*)</a>" "$1" (index $heading 0)) -}}
+        {{- .Permalink }}#{{- replaceRE "#([a-z-]*).>[^<]*[^<]*</a>" "$1" (index $heading 0) -}}
+        {{- $scratch.Set "identicalHeadingFound" true }}
+      {{ else }}
+        {{- $scratch.Set "fuzzyHeading" (printf "%s#%s" .Permalink (replaceRE "#([a-z-]*).>[^<]*[^<]*</a>" "$1" (index $heading 0))) }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end -}}
+
+{{ if and (not ($scratch.Get "identicalHeadingFound")) ($scratch.Get "fuzzyHeading") -}}
+  {{- $scratch.Get "fuzzyHeading" -}}
+{{- end }}
+
+{{/* Look for non-heading content that contains the text */}}
+
